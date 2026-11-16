@@ -1,0 +1,334 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    box-sizing: border-box;
+    --borderColor: #3a86ff;
+    --borderWidth: 1px;
+    --petSize: 180px;
+    --petColor: #3a86ff;
+    transition: all 1s ease;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: 10%;
+    border-bottom: var(--borderWidth) dashed #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    background-color: var(--borderColor);
+    color: #fff;
+}
+
+main {
+    width: 100%;
+    flex: 1;
+    display: flex;
+}
+
+section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+aside {
+    height: 100%;
+    flex: 1;
+    border-left: var(--borderWidth) dashed var(--borderColor);
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    width: 100%;
+    height: 10%;
+    border-top: var(--borderWidth) dashed #fff;
+    background-color: var(--borderColor);
+    color: #fff;
+}
+
+.header_pet_name {
+    font-size: 40px;
+}
+
+.pet_box {
+    width: 100%;
+    height: 60%;
+    border-bottom: var(--borderWidth) dashed var(--borderColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.info_box {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pet_name_box {
+    width: 40%;
+    height: 100%;
+    border-left: var(--borderWidth) dashed #fff;
+    border-right: var(--borderWidth) dashed #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--borderColor);
+    color: #fff;
+}
+
+.condition_box {
+    width: 20%;
+    height: 100%;
+    border-right: var(--borderWidth) dashed #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--borderColor);
+    color: #fff;
+}
+
+.pet_name_wrap {
+    width: 100%;
+    height: 50%;
+    border-bottom: var(--borderWidth) dashed var(--borderColor);
+    border-top: var(--borderWidth) dashed var(--borderColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.condition_wrap {
+    width: 100%;
+    height: 70%;
+    border-bottom: var(--borderWidth) dashed var(--borderColor);
+    border-top: var(--borderWidth) dashed var(--borderColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.tag {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.pet_name {
+    font-size: 50px;
+    color: #000;
+}
+
+.aside_title {
+    width: 100%;
+    height: 15%;
+    position: relative;
+    background-color: var(--borderColor);
+    color: #fff;
+}
+
+.status_container {
+    width: 100%;
+    flex: 1;
+    border-top: var(--borderWidth) dashed var(--borderColor);
+    display: flex;
+    justify-content: center;
+}
+
+.status_box {
+    width: 60%;
+    height: 100%;
+    border-left: var(--borderWidth) dashed var(--borderColor);
+    border-right: var(--borderWidth) dashed var(--borderColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.status_wrap {
+    width: 100%;
+    height: 30%;
+    background-color: var(--borderColor);
+    border-top: var(--borderWidth) dashed #fff;
+    border-bottom: var(--borderWidth) dashed #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    color: #fff;
+}
+
+.status {
+    width: 100%;
+    height: 30%;
+    background-color: #fff;
+    margin: 20px 0;
+    border-bottom: var(--borderWidth) dashed var(--borderColor);
+    border-top: var(--borderWidth) dashed var(--borderColor);
+}
+
+.status_value {
+    background-color: #0044b3;
+    height: 100%;
+}
+
+.default {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: var(--petColor);
+}
+
+.speech {
+    position: absolute;
+    bottom: 15%;
+    color: #000;
+    animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(3px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(3px);
+    }
+}
+
+
+/* 아래 사이트에서 참고한 코드 */
+/* link : https://css-loaders.com/ */
+
+.pet_body {
+  height: var(--petSize);
+  aspect-ratio: 1;
+  animation: l9 2s infinite linear, floating 5s ease-in-out infinite;
+  background: var(--petColor);
+}
+@keyframes l9 {
+  0%,to {clip-path: shape(from 88.17% 44.57%,curve to 83.91% 54.42% with 80.53% 50.00%,curve to 87.09% 63.68% with 87.29% 58.84%,curve to 82.15% 70.76% with 86.89% 68.52%,curve to 78.45% 81.30% with 77.42% 73.00%,curve to 73.45% 89.98% with 79.48% 89.60%,curve to 62.06% 89.23% with 67.41% 90.37%,curve to 52.45% 84.62% with 56.72% 88.09%,curve to 43.33% 84.81% with 48.19% 81.14%,curve to 35.31% 84.71% with 38.48% 88.49%,curve to 27.93% 79.39% with 32.14% 80.93%,curve to 23.86% 72.48% with 23.73% 77.85%,curve to 21.30% 64.27% with 23.99% 67.11%,curve to 20.07% 57.38% with 18.60% 61.43%,curve to 13.68% 49.08% with 21.53% 53.33%,curve to 11.55% 41.46% with 5.84% 44.84%,curve to 13.34% 30.70% with 17.26% 38.08%,curve to 13.91% 19.90% with 9.42% 23.31%,curve to 25.30% 17.85% with 18.39% 16.50%,curve to 34.95% 14.04% with 32.22% 19.20%,curve to 42.89% 13.03% with 37.69% 8.89%,curve to 52.68% 12.97% with 48.09% 17.17%,curve to 59.46% 15.87% with 57.27% 8.77%,curve to 66.23% 22.52% with 61.66% 22.97%,curve to 78.26% 21.04% with 70.80% 22.07%,curve to 85.25% 26.28% with 85.73% 20.02%,curve to 90.29% 35.84% with 84.77% 32.54%,curve to 88.17% 44.57% with 95.81% 39.14%)}
+  34% {clip-path: shape(from 85.64% 45.40%,curve to 80.17% 53.30% with 82.48% 50.00%,curve to 83.85% 63.31% with 77.85% 56.60%,curve to 84.76% 72.45% with 89.85% 70.01%,curve to 76.40% 77.98% with 79.67% 74.90%,curve to 67.03% 78.20% with 73.13% 81.07%,curve to 57.66% 75.10% with 60.93% 75.33%,curve to 51.01% 82.71% with 54.39% 74.88%,curve to 43.15% 89.22% with 47.64% 90.54%,curve to 36.03% 83.32% with 38.66% 87.89%,curve to 32.48% 74.15% with 33.40% 78.75%,curve to 25.78% 69.64% with 31.55% 69.55%,curve to 15.32% 67.02% with 20.02% 69.72%,curve to 9.98% 59.54% with 10.63% 64.33%,curve to 6.34% 49.65% with 9.34% 54.75%,curve to 6.78% 40.03% with 3.35% 44.55%,curve to 12.58% 31.23% with 10.20% 35.52%,curve to 20.32% 25.59% with 14.95% 26.95%,curve to 28.84% 21.52% with 25.69% 24.23%,curve to 36.55% 19.54% with 31.99% 18.80%,curve to 44.10% 10.28% with 41.10% 20.28%,curve to 52.59% 2.25% with 47.10% 0.29%,curve to 62.64% 7.16% with 58.07% 4.21%,curve to 69.87% 14.93% with 67.20% 10.12%,curve to 72.61% 25.35% with 72.53% 19.74%,curve to 82.58% 29.82% with 72.68% 30.97%,curve to 90.63% 34.74% with 92.47% 28.67%,curve to 85.64% 45.40% with 88.80% 40.81%)}
+  66% {clip-path: shape(from 80.52% 46.38%,curve to 85.67% 54.84% with 80.51% 50.00%,curve to 91.15% 65.25% with 90.83% 59.68%,curve to 85.18% 72.53% with 91.47% 70.83%,curve to 73.79% 74.67% with 78.89% 74.24%,curve to 66.02% 78.04% with 68.68% 75.10%,curve to 60.09% 84.80% with 63.36% 80.98%,curve to 52.27% 88.84% with 56.81% 88.61%,curve to 42.62% 90.39% with 47.72% 89.08%,curve to 31.93% 91.34% with 37.51% 91.71%,curve to 26.73% 82.61% with 26.34% 90.97%,curve to 25.77% 70.54% with 27.12% 74.25%,curve to 25.58% 62.64% with 24.43% 66.82%,curve to 15.08% 56.96% with 26.74% 58.47%,curve to 3.72% 50.03% with 3.42% 55.44%,curve to 8.59% 40.61% with 4.01% 44.62%,curve to 19.65% 35.45% with 13.17% 36.60%,curve to 28.19% 31.69% with 26.13% 34.30%,curve to 31.99% 25.44% with 30.26% 29.08%,curve to 35.50% 14.65% with 33.71% 21.79%,curve to 42.72% 12.88% with 37.28% 7.51%,curve to 53.41% 9.55% with 48.15% 18.24%,curve to 62.85% 5.68% with 58.66% 0.86%,curve to 69.97% 14.87% with 67.04% 10.50%,curve to 76.95% 21.61% with 72.90% 19.24%,curve to 79.46% 29.98% with 81.00% 23.98%,curve to 79.23% 39.37% with 77.93% 35.98%,curve to 80.52% 46.38% with 80.53% 42.76%)}
+}
+
+.eat {
+  width: 35px;
+  height: 80px;
+  position: relative;
+}
+.eat:before {
+  content: "";
+  position: absolute;
+  inset: 0 0 20px;
+  padding: 1px;
+  background:
+    conic-gradient(from -90deg at calc(100% - 3px) 3px,#7e3c26 135deg,#341612 0 270deg,#0000 0),
+    conic-gradient(from   0deg at 3px calc(100% - 3px),#0000 90deg,#341612 0 225deg,#7e3c26 0),
+    #54281f;
+  background-size: 17px 17px;
+  background-clip: content-box;
+  --c:no-repeat linear-gradient(#000 0 0);
+  -webkit-mask:
+      var(--c) 0    0, 
+      var(--c) 17px 0, 
+      var(--c) 0    17px, 
+      var(--c) 17px 17px, 
+      var(--c) 0    34px, 
+      var(--c) 17px 34px,
+      linear-gradient(#000 0 0);
+  mask:
+      var(--c) 0    0, 
+      var(--c) 17px 0, 
+      var(--c) 0    17px, 
+      var(--c) 17px 17px, 
+      var(--c) 0    34px, 
+      var(--c) 17px 34px,
+      linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  animation: l6 3s infinite ;
+}
+.eat:after {
+  content: "";
+  position: absolute;
+  inset: 60% 0 0;
+  background: #B21B01;
+  border-top: 5px solid #c9c7c5; 
+}
+@keyframes l6 {
+ 0%,14%  {-webkit-mask-size: 0 0,0 0,0 0,0 0,0 0,0 0,auto}
+ 15%,29% {-webkit-mask-size: 17px 17px,0 0,0 0,0 0,0 0,0 0,auto}
+ 30%,44% {-webkit-mask-size: 17px 17px,17px 17px,0 0,0 0,0 0,0 0,auto}
+ 45%,59% {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,0 0,0 0,0 0,auto}
+ 60%,74% {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,17px 17px,0 0,0 0,auto}
+ 75%,89% {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,17px 17px,17px 17px,0 0,auto}
+ 90%,
+ 100%    {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,17px 17px,17px 17px,17px 17px,auto}
+}
+
+.heart {
+  width: 50px;
+  aspect-ratio: 1;
+  color:#dc1818;
+  background:
+   radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+   radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+   linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,
+   linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.heart:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.4;
+  animation: l3 1s infinite;
+}
+@keyframes l3 {
+  to {transform:scale(1.8);opacity:0}
+}
+
+.speak {
+  height: 30px;
+  aspect-ratio: 2.5;
+  --_g: no-repeat radial-gradient(farthest-side,#000 90%,#0000);
+  background:var(--_g), var(--_g), var(--_g), var(--_g);
+  background-size: 20% 50%;
+  animation: l43 1s infinite linear; 
+}
+@keyframes l43 {
+  0%     {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  16.67% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  33.33% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  50%    {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 50% }
+  66.67% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 0   }
+  83.33% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}
+  100%   {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+}

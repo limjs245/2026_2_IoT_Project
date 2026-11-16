@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{name}} Pet</title>
+</head>
+<body>
+    <header>
+        <h1 class="header_pet_name">{{name}} Growing</h1>
+    </header>
+    <main>
+        <section>
+            <div class="pet_box">
+                <div class="pet_body"></div>
+                <div class="speech">
+                    <h1 id="speechText"></h1>
+                </div>
+            </div>
+            <div class="info_box">
+                <div class="pet_name_box">
+                    <span class="tag">Name</span>
+                    <div class="pet_name_wrap">
+                        <h1 class="pet_name">{{name}}</h1>
+                    </div>
+                </div>
+                <div class="condition_box">
+                    <span class="tag">Condition</span>
+                    <div class="condition_wrap">
+                        <div class="default"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <div class="aside_title">
+                <h1 class="tag">Status</h1>
+            </div>
+            <div class="status_container">
+                <div class="status_box">
+                    <div class="status_wrap">
+                        <span class="tag">Happiness</span>
+                        <div class="status">
+                            <div class="status_value" id="happinessStatusValue" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="status_wrap">
+                        <span class="tag">Fullness</span>
+                        <div class="status">
+                            <div class="status_value" id="fullnessStatusValue" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <footer></footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

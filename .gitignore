@@ -1,0 +1,83 @@
+# =========================
+# Python & Flask
+# =========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (가상환경)
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask instance folder (비밀키, 로컬 DB 등 설정 파일)
+instance/
+
+# Environments (환경변수 및 비밀키 - 보안상 매우 중요)
+.env
+.flaskenv
+.env.local
+
+# SQLite Databases (로컬 테스트용 DB)
+*.sqlite3
+*.db
+
+# =========================
+# Frontend (HTML, CSS, JS)
+# =========================
+# Node.js (프론트엔드 패키지 매니저를 사용할 경우)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 기타
+temp/
+
+# =========================
+# Distribution / Packaging / Logs
+# =========================
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.log
+
+# =========================
+# IDEs / Editors
+# =========================
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+
+# =========================
+# OS generated files
+# =========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
