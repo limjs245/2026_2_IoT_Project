@@ -7,7 +7,6 @@
     --borderWidth: 1px;
     --petSize: 180px;
     --petColor: #3a86ff;
-    transition: all 1s ease;
 }
 
 html, body {
@@ -191,6 +190,7 @@ footer {
 .status_value {
     background-color: #0044b3;
     height: 100%;
+    transition: all 1s ease;
 }
 
 .default {

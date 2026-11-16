@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -12,14 +12,17 @@ input_data = {
 def defaultPet():
     return render_template("index.html", name = "Raspberry")
 
+@app.route("/setting")
+def setting():
+    return render_template("setting.html")
+
+@app.route("/pet/")
 @app.route("/pet/<pet_name>")
-def newPet(pet_name):
-    if (pet_name is None):
-        pet_name = "Raspberry"
+def newPet(pet_name = "Raspberry"):
     return render_template("index.html", name = pet_name)
 
-@app.route('/get_input', methods=['GET'])
-def get_input():
+@app.route('/get_input/h', methods=['GET'])
+def get_input_h():
     global input_data
     response_data = {
         "status": "success",
@@ -30,6 +33,15 @@ def get_input():
     input_data["feedBtn"] = False
     input_data["touchBtn"] = False
     return jsonify(response_data)
+
+@app.route('/get_input/w', methods=['POST'])
+def get_input_w():
+    global input_data
+    data = request.get_json()
+    input_data["feedBtn"] = data.get('feedBtn')
+    input_data["touchBtn"] = data.get('touchBtn')
+    input_data["isNear"] = data.get('isNear')
+    return '', 204
 
 if __name__ == "__main__":
     app.run(debug=True)

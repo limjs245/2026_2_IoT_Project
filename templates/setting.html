@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Setting</title>
+</head>
+<body>
+    <div>
+        <button onclick="feed()">Feed</button>
+        <button onclick="touch()">Touch</button>
+        <div>
+            <span>Near</span>
+            <input type="checkbox" id="near" onchange="isNear()">
+        </div>
+    </div>
+    <script>
+        const near = document.getElementById('near');
+
+        let input = {
+            feedBtn: false,
+            touchBtn: false,
+            isNear: false
+        };
+
+        function send() {
+            fetch('/get_input/w', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(input)
+            })
+            .catch(error => {
+                console.error('데이터 전송 실패:', error);
+            });
+            input.feedBtn = false;
+            input.touchBtn = false;
+        }
+
+        function feed() {
+            input.feedBtn = true;
+            send();
+        }
+
+        function touch() {
+            input.touchBtn = true;
+            send();
+        }
+
+        function isNear() {
+            input.isNear = near.checked;
+            send();
+        }
+    </script>
+</body>
+</html>
