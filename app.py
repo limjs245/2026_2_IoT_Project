@@ -5,7 +5,8 @@ app = Flask(__name__)
 input_data = {
     "feedBtn": False,
     "touchBtn": False,
-    "isNear": False
+    "isNear": False,
+    "washBtn": False
 }
 
 @app.route("/")
@@ -28,10 +29,12 @@ def get_input_h():
         "status": "success",
         "feedBtn": input_data["feedBtn"],
         "touchBtn": input_data["touchBtn"],
-        "isNear": input_data["isNear"]
+        "isNear": input_data["isNear"],
+        "washBtn": input_data["washBtn"]
     }
     input_data["feedBtn"] = False
     input_data["touchBtn"] = False
+    input_data["washBtn"] = False
     return jsonify(response_data)
 
 @app.route('/get_input/w', methods=['POST'])
@@ -41,6 +44,7 @@ def get_input_w():
     input_data["feedBtn"] = data.get('feedBtn')
     input_data["touchBtn"] = data.get('touchBtn')
     input_data["isNear"] = data.get('isNear')
+    input_data["washBtn"] = data.get('washBtn')
     return '', 204
 
 if __name__ == "__main__":

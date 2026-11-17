@@ -9,6 +9,7 @@
     <div>
         <button onclick="feed()">Feed</button>
         <button onclick="touch()">Touch</button>
+        <button onclick="wash()">Wash</button>
         <div>
             <span>Near</span>
             <input type="checkbox" id="near" onchange="isNear()">
@@ -20,7 +21,8 @@
         let input = {
             feedBtn: false,
             touchBtn: false,
-            isNear: false
+            isNear: false,
+            washBtn: false
         };
 
         function send() {
@@ -36,6 +38,7 @@
             });
             input.feedBtn = false;
             input.touchBtn = false;
+            input.washBtn = false;
         }
 
         function feed() {
@@ -45,6 +48,11 @@
 
         function touch() {
             input.touchBtn = true;
+            send();
+        }
+
+        function wash() {
+            input.washBtn = true;
             send();
         }
 

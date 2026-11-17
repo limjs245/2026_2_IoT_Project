@@ -3,10 +3,11 @@ import time
 import threading
 import app
  
-FEEDBTN, TOUCHBTN, TRIG, ECHO = 8, 10, 23, 24
+FEEDBTN, TOUCHBTN, TRIG, ECHO, WASHBTN = 8, 10, 23, 24, 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(FEEDBTN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(TOUCHBTN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(WASHBTN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(TRIG, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(ECHO, GPIO.IN)
 
@@ -20,9 +21,13 @@ def feed(channel):
 
 def touch(channel):
     app.input_data["touchBtn"] = True
+
+def wash(channel):
+    app.input_data["washBtn"] = True
  
 GPIO.add_event_detect(FEEDBTN, GPIO.FALLING, callback=feed, bouncetime=300)
 GPIO.add_event_detect(TOUCHBTN, GPIO.FALLING, callback=touch, bouncetime=300)
+GPIO.add_event_detect(WASHBTN, GPIO.FALLING, callback=touch, bouncetime=300)
 
 def get_distance_cm(timeout_s=0.03):
     trigger()
@@ -39,7 +44,7 @@ def get_distance_cm(timeout_s=0.03):
 
 def update(distance):
     if distance is None: return
-    if distance < 20:
+    if distance < 10:
         app.input_data["isNear"] = True
     else:
         app.input_data["isNear"] = False
