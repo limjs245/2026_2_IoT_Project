@@ -3,6 +3,9 @@ const happiness = document.getElementById('happinessStatusValue');
 const fullness = document.getElementById('fullnessStatusValue');
 const cleanliness = document.getElementById('cleanlinessStatusValue');
 const condition = document.getElementById('condition');
+const happinessText = document.getElementById('happinessStatusValueText');
+const fullnessText = document.getElementById('fullnessStatusValueText');
+const cleanlinessText = document.getElementById('cleanlinessStatusValueText');
 
 let happinessValue = 50;
 let fullnessValue = 50;
@@ -29,9 +32,15 @@ function updateCondition() {
     }
 }
 
-fullness.style.width = fullnessValue + "%";
-happiness.style.width = happinessValue + "%";
-cleanliness.style.width = cleanlinessValue + "%";
+function updateStatus() {
+    fullness.style.width = fullnessValue + "%";
+    fullnessText.textContent = fullnessValue + "%";
+    happiness.style.width = happinessValue + "%";
+    happinessText.textContent = happinessValue + "%";
+    cleanliness.style.width = cleanlinessValue + "%";
+    cleanlinessText.textContent = cleanlinessValue + "%";
+}
+updateStatus();
 updateCondition();
 
 setInterval(function() {
@@ -79,9 +88,7 @@ setInterval(function() {
             }
             
             updateCondition();
-            fullness.style.width = fullnessValue + "%";
-            happiness.style.width = happinessValue + "%";
-            cleanliness.style.width = cleanlinessValue + "%";
+            updateStatus();
         })
         .catch(e => console.error("error:", e));
 }, 1000);
@@ -89,10 +96,18 @@ setInterval(function() {
 
 setInterval(function() {
     if (fullnessValue > 0) fullnessValue -= 1;
+    
+    updateStatus();
+}, 3000);
+
+setInterval(function() {
     if (happinessValue > 0) happinessValue -= 1;
+    
+    updateStatus();
+}, 5000);
+
+setInterval(function() {
     if (cleanlinessValue > 0) cleanlinessValue -= 1;
     
-    fullness.style.width = fullnessValue + "%";
-    happiness.style.width = happinessValue + "%";
-    cleanliness.style.width = cleanlinessValue + "%";
-}, 3000);
+    updateStatus();
+}, 4000);
