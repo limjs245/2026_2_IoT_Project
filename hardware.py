@@ -27,7 +27,7 @@ def wash(channel):
  
 GPIO.add_event_detect(FEEDBTN, GPIO.FALLING, callback=feed, bouncetime=300)
 GPIO.add_event_detect(TOUCHBTN, GPIO.FALLING, callback=touch, bouncetime=300)
-GPIO.add_event_detect(WASHBTN, GPIO.FALLING, callback=touch, bouncetime=300)
+GPIO.add_event_detect(WASHBTN, GPIO.FALLING, callback=wash, bouncetime=300)
 
 def get_distance_cm(timeout_s=0.03):
     trigger()
